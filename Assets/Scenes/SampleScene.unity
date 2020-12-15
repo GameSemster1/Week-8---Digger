@@ -167,7 +167,52 @@ MonoBehaviour:
   allowedTiles:
   - {fileID: 11400000, guid: f15cb237304a96d4698fd39c74b6a731, type: 2}
   - {fileID: 11400000, guid: 54a9dcdb701adee46a6e6a9395bbaa84, type: 2}
-  - {fileID: 11400000, guid: 876f79f13b3819b4c87de87c7e1df168, type: 2}
+  - {fileID: 11400000, guid: c419e098cf1045f4c986d5f010d4957f, type: 2}
+--- !u!1 &459569480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 459569482}
+  - component: {fileID: 459569481}
+  m_Layer: 0
+  m_Name: LevelInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &459569481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459569480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed451509c56e6046859946fb8919655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1513802907}
+  tilemap: {fileID: 1528683334}
+--- !u!4 &459569482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459569480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +224,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -194,6 +240,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47060b3eef11ba64da5db7a4868396dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDist: {x: 2, y: 2}
+  target: {fileID: 1513802905}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -204,7 +264,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.475, g: 0.46525177, b: 0.2223, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -221,7 +281,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 22.837643
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -261,7 +321,6 @@ GameObject:
   m_Component:
   - component: {fileID: 562671624}
   - component: {fileID: 562671623}
-  - component: {fileID: 562671622}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -269,37 +328,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &562671622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562671621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f6463123d8fd9b40987f4a1f6cdd6ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 1528683334}
-  seed: 0
-  multiplier: 1
-  def: {fileID: 11400000, guid: f15cb237304a96d4698fd39c74b6a731, type: 2}
-  entries:
-  - tile: {fileID: 11400000, guid: bdf8e23b2b5b1144185a851c4615f3ab, type: 2}
-    prob: 0.5
-    offset: 0
-    multiplier: 0.3
-  - tile: {fileID: 11400000, guid: df0f13817da41224b8b6b6cd7ec0b67a, type: 2}
-    prob: 0.2
-    offset: 0
-    multiplier: 0.2
-  - tile: {fileID: 11400000, guid: 54a9dcdb701adee46a6e6a9395bbaa84, type: 2}
-    prob: 0.2
-    offset: 100
-    multiplier: 0.5
-  size: {x: 100, y: 100}
-  recreate: 0
 --- !u!156049354 &562671623
 Grid:
   m_ObjectHideFlags: 0
@@ -484,7 +512,7 @@ GameObject:
   - component: {fileID: 1513802907}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -568,7 +596,7 @@ MonoBehaviour:
   tilemap: {fileID: 1528683334}
   allowedTile: {fileID: 391504636}
   qarryingTile: {fileID: 1319840513}
-  tile: {fileID: 11400000, guid: 876f79f13b3819b4c87de87c7e1df168, type: 2}
+  tile: {fileID: 11400000, guid: c419e098cf1045f4c986d5f010d4957f, type: 2}
   toQarrying: 120
 --- !u!1 &1528683333
 GameObject:

@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = System.Random;
 
 public class MapGenerator : MonoBehaviour
 {
-	public Tilemap tilemap;
+	private Tilemap tilemap => LevelInfo.instance.tilemap;
+	public bool useRandomSeed;
 	public float seed = 100;
 	public float multiplier = 100;
 
@@ -18,6 +21,8 @@ public class MapGenerator : MonoBehaviour
 
 	public bool recreate = false;
 
+	public int[] TileCount { get; private set; }
+
 	[System.Serializable]
 	public class Entry
 	{
@@ -27,15 +32,17 @@ public class MapGenerator : MonoBehaviour
 		public float multiplier = 1;
 	}
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		CreateMap();
-	}
+	private readonly Random rand = new Random();
 
-	private void CreateMap()
+	public void CreateMap()
 	{
+		if (useRandomSeed)
+		{
+			seed = rand.Next(0, 1000);
+		}
+
 		var map = Generate();
+		TileCount = new int[entries.Length + 1];
 
 		for (int i = 0; i < map.GetLength(0); i++)
 		{
@@ -49,6 +56,11 @@ public class MapGenerator : MonoBehaviour
 				if (type >= 0 && type < entries.Length)
 				{
 					tile = entries[type].tile;
+					TileCount[type + 1]++;
+				}
+				else
+				{
+					TileCount[0]++;
 				}
 
 				tilemap.SetTile(position, tile);
