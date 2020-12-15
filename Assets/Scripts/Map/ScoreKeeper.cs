@@ -39,7 +39,7 @@ public class ScoreKeeper : MonoBehaviour
 			Collect(player.position);
 		}
 
-		if (score >= GemCount * percentNeeded)
+		if (score >= (int) (GemCount * percentNeeded))
 		{
 			levelLoader.LoadNextLevel();
 		}
@@ -66,6 +66,6 @@ public class ScoreKeeper : MonoBehaviour
 
 	private void OnGUI()
 	{
-		GUILayout.Label("\nYou need " + (GemCount * percentNeeded - score) + " more gems");
+		GUILayout.Label("\nYou need " + (int) (GemCount * percentNeeded - score) + " more gems");
 	}
 }

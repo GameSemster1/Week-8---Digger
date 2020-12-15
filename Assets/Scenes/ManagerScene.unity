@@ -186,7 +186,7 @@ MonoBehaviour:
   levelLoader: {fileID: 1617742482}
   gem: {fileID: 11400000, guid: 54a9dcdb701adee46a6e6a9395bbaa84, type: 2}
   collected: {fileID: 11400000, guid: c419e098cf1045f4c986d5f010d4957f, type: 2}
-  percentNeeded: 1
+  percentNeeded: 0.95
   score: 0
 --- !u!4 &1617742481
 Transform:
@@ -219,4 +219,3 @@ MonoBehaviour:
   startSize: {x: 10, y: 10}
   sizeScale: 1.3
   level: 1
-  mainSceneLoaded: 0

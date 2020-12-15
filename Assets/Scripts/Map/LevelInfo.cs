@@ -11,6 +11,8 @@ public class LevelInfo : MonoBehaviour
 	public KeyboardMoverByTile player;
 	public Tilemap tilemap;
 
+	public LevelLoader levelLoader;
+
 	private void Awake()
 	{
 		instance = this;
