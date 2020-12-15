@@ -15,7 +15,6 @@ public class KeyboardMoverByTile: KeyboardMover {
 	[SerializeField] QarryingTile qarryingTile = null;
 	[SerializeField] Tile tile = null;
 	[SerializeField] KeyCode toQarrying;
-	private bool qarry = false;
 
 	private TileBase TileOnPosition(Vector3 worldPosition) {
 		Vector3Int cellPosition = tilemap.WorldToCell(worldPosition);
@@ -29,9 +28,9 @@ public class KeyboardMoverByTile: KeyboardMover {
 			transform.position = newPosition;
 		} 
 		else if(qarryingTile.Contain(tileOnNewPosition)){
-			var position = new Vector3Int((int)(newPosition.x), (int)(newPosition.y), 0);
-			if(Input.GetKeyDown(toQarrying)){
-				tilemap.SetTile(position, tile);
+			if(Input.GetKey(toQarrying)){
+				Vector3Int cellPosition = tilemap.WorldToCell(newPosition);
+				tilemap.SetTile(cellPosition, tile);
 			}
 		} 
 		else {
@@ -39,3 +38,4 @@ public class KeyboardMoverByTile: KeyboardMover {
 		}
 	}
 }
+

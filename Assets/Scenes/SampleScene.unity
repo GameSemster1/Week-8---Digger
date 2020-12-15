@@ -299,7 +299,7 @@ MonoBehaviour:
     offset: 100
     multiplier: 0.5
   size: {x: 100, y: 100}
-  recreate: 1
+  recreate: 0
 --- !u!156049354 &562671623
 Grid:
   m_ObjectHideFlags: 0
@@ -384,7 +384,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1513802905}
   - component: {fileID: 1513802906}
-  - component: {fileID: 1513802908}
   - component: {fileID: 1513802907}
   m_Layer: 0
   m_Name: Player
@@ -474,19 +473,8 @@ MonoBehaviour:
   allowedTile: {fileID: 391504636}
   qarryingTile: {fileID: 1319840513}
   tile: {fileID: 11400000, guid: 876f79f13b3819b4c87de87c7e1df168, type: 2}
+  change: {fileID: 11400000, guid: 9c2b2004faaf00a48a4bf6baf2db3066, type: 2}
   toQarrying: 120
---- !u!114 &1513802908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513802904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 607f1a0a831a1254e97bacdb619af018, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1528683333
 GameObject:
   m_ObjectHideFlags: 0
